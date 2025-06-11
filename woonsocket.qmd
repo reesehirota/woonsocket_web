@@ -15,14 +15,11 @@ format:
   html:
     mermaid: 
       theme: forest
-    theme: lumen
     backgroundcolor: "#FAFAFA"
-    css: styles.css
 ---
 
 ```{r, include = FALSE}
 library(leaflet)
-library(ggplot2)
 ```
 
 ::::::::::: grid
@@ -34,15 +31,6 @@ library(ggplot2)
 
 ::: g-col-8
 Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here 
-
-Fake plot
-
-```{r, message=FALSE, echo=FALSE}
-ggplot(data = mtcars,
-       aes(x = gear, y = carb)) + 
-  geom_point()
-```
-
 
 :::
 
