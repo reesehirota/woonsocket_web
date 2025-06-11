@@ -2,7 +2,17 @@ project:
   type: website
   output-dir: docs
   
+website:
+  title: "Rhode Island Dept of Health"
+  favicon: www/logo.png
+  search: false
+  navbar: 
+    logo: www/logo.png
+    title: "Rhode Island Department of Health"
+    pinned: true
+    background: light
+  
 format:
   html:
-    theme: lumen
+    theme: simplex
     css: styles.css

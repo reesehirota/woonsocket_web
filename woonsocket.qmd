@@ -1,6 +1,6 @@
 ---
 title: "Built Environment Efforts in Woonsocket"
-subtitle: "Rhode Island Department of Health (RIDOH)" 
+# subtitle: "Rhode Island Department of Health (RIDOH)" 
 title-block-banner-color: "#FFFFFF"
 title-block-banner: www/header_edited.png
 include-in-header:
@@ -24,9 +24,9 @@ library(leaflet)
 
 ::::::::::: grid
 ::: g-col-12
-# Overview
+## Overview
 
-## How the built environment can support access to physical activity & active transportation
+### How the built environment can support access to physical activity & active transportation
 :::
 
 ::: g-col-8
