@@ -1,83 +1,101 @@
 ---
 title: "Built Environment Efforts in Woonsocket"
+subtitle: "Rhode Island Department of Health (RIDOH)" 
 title-block-banner-color: "#FFFFFF"
-title-block-banner: www/header.png
+title-block-banner: www/header_edited.png
 include-in-header:
   - text: |
       <style>
       .quarto-title-block .quarto-title-banner {
         background-position-y: center;
-        height: 250px;
+        height: 285px;
       }
       </style>
 format: 
   html:
+    mermaid: 
+      theme: forest
     theme: lumen
+    backgroundcolor: "#FAFAFA"
     css: styles.css
 ---
 
 ```{r, include = FALSE}
 library(leaflet)
+library(ggplot2)
 ```
 
-
-::: grid
-
+::::::::::: grid
 ::: g-col-12
 # Overview
+
+## How the built environment can support access to physical activity & active transportation
 :::
 
 ::: g-col-8
 Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here 
+
+Fake plot
+
+```{r, message=FALSE, echo=FALSE}
+ggplot(data = mtcars,
+       aes(x = gear, y = carb)) + 
+  geom_point()
+```
+
+
 :::
 
-::: g-col-4
+::::: g-col-4
 :::: {style="text-align: center;"}
-:::{.callout-note style="border-left: solid 2px #dee2e6 !important;" appearance="minimal" icon="false"}
+::: {.callout-note style="border-left: solid 2px #dee2e6 !important;" appearance="minimal" icon="false"}
 **Highlight #1**
 
 Highlight #1
 
--------------------------------------------
+------------------------------------------------------------------------
 
 **Highlight #2**
 
 Highlight #2
 
--------------------------------------------
+------------------------------------------------------------------------
 
 **Highlight #3**
 
 Highlight #3
 :::
 ::::
+:::::
+
+::: g-col-12
+## History and Timeline
+
+Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here
+
+```{mermaid}
+%%| fig-align: center
+flowchart LR
+  A[Hard edge] --> B(Round edge)
+  B --> C{Decision}
+  C --> D[Result one]
+  C --> E[Result two]
+```
 :::
 
 ::: g-col-12
+# Resources
 
-# History and Timeline
-
-Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here 
-
-:::
-
-::: g-col-12
-
-# Interactive Map
+## Interactive Map
 
 ```{r, echo=FALSE, message=FALSE}
 leaflet() %>%
   addProviderTiles(providers$CartoDB.Positron) %>%
   setView(lng = -71.5148,lat = 42.0029, zoom = 14)
 ```
-
-
 :::
 
 ::: g-col-12
-
-# Call to Action
-
+## Get Involved
 :::
-
-:::
+:::::::::::
