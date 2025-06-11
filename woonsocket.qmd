@@ -1,0 +1,83 @@
+---
+title: "Built Environment Efforts in Woonsocket"
+title-block-banner-color: "#FFFFFF"
+title-block-banner: www/header.png
+include-in-header:
+  - text: |
+      <style>
+      .quarto-title-block .quarto-title-banner {
+        background-position-y: center;
+        height: 250px;
+      }
+      </style>
+format: 
+  html:
+    theme: lumen
+    css: styles.css
+---
+
+```{r, include = FALSE}
+library(leaflet)
+```
+
+
+::: grid
+
+::: g-col-12
+# Overview
+:::
+
+::: g-col-8
+Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here 
+:::
+
+::: g-col-4
+:::: {style="text-align: center;"}
+:::{.callout-note style="border-left: solid 2px #dee2e6 !important;" appearance="minimal" icon="false"}
+**Highlight #1**
+
+Highlight #1
+
+-------------------------------------------
+
+**Highlight #2**
+
+Highlight #2
+
+-------------------------------------------
+
+**Highlight #3**
+
+Highlight #3
+:::
+::::
+:::
+
+::: g-col-12
+
+# History and Timeline
+
+Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here 
+
+:::
+
+::: g-col-12
+
+# Interactive Map
+
+```{r, echo=FALSE, message=FALSE}
+leaflet() %>%
+  addProviderTiles(providers$CartoDB.Positron) %>%
+  setView(lng = -71.5148,lat = 42.0029, zoom = 14)
+```
+
+
+:::
+
+::: g-col-12
+
+# Call to Action
+
+:::
+
+:::
