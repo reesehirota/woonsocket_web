@@ -7,7 +7,6 @@ website:
   favicon: www/logo.png
   search: false
   navbar:
-    background: dark
     logo: www/logo.png
     title: "Rhode Island Department of Health"
     pinned: true

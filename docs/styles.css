@@ -11,3 +11,8 @@
   background-color: #FAFAFA;
 }
 
+.navbar {
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px rgb(66, 66, 66, .2);
+}
+
