@@ -33,7 +33,7 @@ library(htmltools)
 
 ::: g-col-8
 
-Regular physical activity can result in numerous health benefits – such as decreasing risk for obesity and cardiovascular disease. The American Heart Association recommends policy to promote active transportation at 3 levels: the top-level of land use, the mid-level of pedestrian and bicycle networks and infrastructure, and the micro-level of street design and safety. Together, the City of Woonsocket and advocates such as the Woonsocket HEZ & Downtown Woonsocket Collaborative have taken measures to:
+Regular physical activity can result in numerous health benefits – such as decreasing risk for obesity and cardiovascular disease. The American Heart Association recommends policy to promote active transportation at 3 levels: the top-level of land use, the mid-level of pedestrian and bicycle networks and infrastructure, and the micro-level of street design and safety. Together, the City of Woonsocket and advocates, including the Woonsocket HEZ & Downtown Woonsocket Collaborative, have taken measures to:
 
   - Maintain flexibility in City zoning and land use policies to meet current needs as appropriate
   
