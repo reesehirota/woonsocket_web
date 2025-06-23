@@ -8,7 +8,7 @@ include-in-header:
       <style>
       .quarto-title-block .quarto-title-banner {
         background-position-y: center;
-        height: 265px;
+        height: 280px;
       }
       </style>
 format: 
@@ -27,7 +27,8 @@ library(htmltools)
 ::: g-col-12
 ## Overview
 
-### A city’s built environment can provide a rich source of physical activity & active transportation for its residents
+### *A city’s built environment can provide a rich source of physical activity & active transportation for its residents*
+
 :::
 
 ::: g-col-8
