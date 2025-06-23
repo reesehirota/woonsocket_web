@@ -1,14 +1,14 @@
 ---
 title: "Built Environment Efforts in Woonsocket"
 # subtitle: "Rhode Island Department of Health (RIDOH)" 
-title-block-banner-color: "#FFFFFF"
-title-block-banner: www/header_edited.png
+title-block-banner-color: "#FAFAFA"
+title-block-banner: www/header.png
 include-in-header:
   - text: |
       <style>
       .quarto-title-block .quarto-title-banner {
         background-position-y: center;
-        height: 285px;
+        height: 265px;
       }
       </style>
 format: 
@@ -26,11 +26,16 @@ library(leaflet)
 ::: g-col-12
 ## Overview
 
-### How the built environment can support access to physical activity & active transportation
+### A city’s built environment can provide a rich source of physical activity & active transportation for its residents
 :::
 
 ::: g-col-8
-Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here 
+
+Regular physical activity can result in numerous health benefits – such as decreasing risk for obesity and cardiovascular disease. The American Heart Association recommends policy to promote active transportation at 3 levels: the top-level of land use, the mid-level of pedestrian and bicycle networks and infrastructure, and the micro-level of street design and safety. Together, the City of Woonsocket and advocates such as the Woonsocket HEZ & Downtown Woonsocket Collaborative have taken measures to:
+
+  - Maintain flexibility in City zoning and land use policies to meet current needs as appropriate
+  
+  - Provide regional bicycle connections and recreational opportunities for both residents and visitors, through paths like the Blackstone River Bikeway
 
 :::
 

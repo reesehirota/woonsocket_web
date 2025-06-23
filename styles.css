@@ -1,10 +1,10 @@
 .title {
   font-size: 55px;
-  background: rgb(36, 36, 66, .80);
+  background: rgb(36, 36, 36, .80);
 }
 
 .subtitle {
-  background: rgb(36, 36, 66, .80);
+  background: rgb(36, 36, 36, .80);
 }
 
 .div {
@@ -12,7 +12,7 @@
 }
 
 .navbar {
-    background-color: #FFFFFF;
+    background-color: #FAFAFA;
     box-shadow: 0 0 10px rgb(66, 66, 66, .2);
 }
 
