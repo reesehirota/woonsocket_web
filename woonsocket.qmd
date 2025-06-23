@@ -19,7 +19,10 @@ format:
 ---
 
 ```{r, include = FALSE}
+library(tidyverse)
+library(sf)
 library(leaflet)
+library(htmltools)
 ```
 
 ::::::::::: grid
@@ -82,8 +85,31 @@ flowchart LR
 ## Interactive Map
 
 ```{r, echo=FALSE, message=FALSE}
-leaflet() %>%
-  addProviderTiles(providers$CartoDB.Positron) %>%
+# ---- load: ridot bike paths
+bike_paths <- read_sf("data/rigis/TRANS_Bike_Paths_RIDOT_spf_6654327448778679796.geojson") %>% 
+  st_transform(4326) # re-project for mapping
+# bike_paths %>% group_by(TYPE) %>% summarise(n = n()) %>% arrange(desc(n)) %>% View()
+# bike_paths %>% group_by(STATUS) %>% summarise(n = n()) %>% arrange(desc(n)) %>% View()
+
+# ---- load: bikeways and trails
+# note: sf of bikes & trails (no other info)
+bikes_n_trails <- read_sf("data/rigis/Bikeways_and_Trails_-6810032319405835885.geojson") %>%
+  st_transform(4326)
+leaflet(width = "100%") %>%
+  addProviderTiles(provider = "CartoDB.Positron") %>%
+  addPolylines(data = bikes_n_trails, color = "#009eb0",
+               group = "Bikeways and trails per the RI state greenways plan",
+               opacity = 1, 
+               weight = 5) %>%
+  addPolylines(data = bike_paths, color = "#029356",
+               group = "RIDOT bike paths",
+               label = str_to_title(bike_paths$PROJ_NAME),
+               opacity = 1,
+               weight = 5) %>%
+  addLayersControl(position = "bottomright",
+                   overlayGroups = c("Bikeways and trails per the RI State Greenways Plan",
+                                     "RIDOT bike paths"),
+                   options = layersControlOptions(collapsed = FALSE)) %>%
   setView(lng = -71.5148,lat = 42.0029, zoom = 14)
 ```
 :::
