@@ -97,7 +97,7 @@ bikes_n_trails <- read_sf("data/rigis/Bikeways_and_Trails_-6810032319405835885.g
 leaflet(width = "100%") %>%
   addProviderTiles(provider = "CartoDB.Positron") %>%
   addPolylines(data = bikes_n_trails, color = "#009eb0",
-               group = "Bikeways and trails per the RI state greenways plan",
+               group = "Bikeways and trails per the RI State Greenways Plan",
                opacity = 1, 
                weight = 5) %>%
   addPolylines(data = bike_paths, color = "#029356",
