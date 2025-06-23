@@ -13,8 +13,6 @@ include-in-header:
       </style>
 format: 
   html:
-    mermaid: 
-      theme: forest
     backgroundcolor: "#FAFAFA"
 ---
 
