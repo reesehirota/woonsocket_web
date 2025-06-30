@@ -102,7 +102,7 @@ flowchart TB
 
 **Pedestrian & Cyclist Networks**
 
-  * **Blackstone Valley Bikeway (2007-2018):** The Blackstone River Greenway, a 48-mile trail from Worcester, MA, to Providence, RI, has significant portions completed, but several gaps remain. While 17 miles of off-road, paved trails exist in segments, the remaining sections require funding and implementation.
+  * **Blackstone Valley Bikeway (2007-2018):** a part of the Blackstone River Greenway, a 48-mile trail from Worcester, MA, to Providence, RI, has significant portions completed, but several gaps remain. While 17 miles of off-road, paved trails exist in segments, the remaining sections require funding and implementation.
   
   * **Bikweway Signage (2014)**: City partneriship with the East Coast Greenway Alliance for new directional signage around Woonsocket for the Bikepath.
   
