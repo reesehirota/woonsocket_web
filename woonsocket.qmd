@@ -30,7 +30,7 @@ library(htmltools)
 ::: g-col-12
 ## Overview
 
-### *A city’s built environment can provide a rich source of physical activity & active transportation for its residents*
+#### A city’s built environment can provide a rich source of physical activity & active transportation for its residents
 
 :::
 
@@ -73,9 +73,7 @@ Highlight #3
 ::: g-col-12
 ## History and Timeline
 
-Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here Text here
-
-Policy/events that used the built environment to promote physical activity
+#### Key policies, investments, events, and other factors that have played a role advancing its built environment in a way that promotes physical activity in the community.		
 
 ```{mermaid}
 %%| fig-align: center
@@ -101,6 +99,24 @@ flowchart TB
     2024`"]
   end
 ```
+
+**Pedestrian & Cyclist Networks**
+
+  * **Blackstone Valley Bikeway (2007-2018):** The Blackstone River Greenway, a 48-mile trail from Worcester, MA, to Providence, RI, has significant portions completed, but several gaps remain. While 17 miles of off-road, paved trails exist in segments, the remaining sections require funding and implementation.
+  
+  * **Bikweway Signage (2014)**: City partneriship with the East Coast Greenway Alliance for new directional signage around Woonsocket for the Bikepath.
+  
+  * **Truman Drive Greenway project (2023-2024)**: transformed a 4-lane, underutilized public road (Truman Drive) into a 2-lane road and linear park incorporating the Blackstone River Bikeway and green infrastructure to treat stormwater runoff into the nearby Blackstone River, while providing recreational, economic, and public health benefits to the city.
+  
+  * **Safe Streets for All** and the **ban of electronic bikes in parks (2024)**: policies to support the SSFA program, develop a Safety Action Plan, and promote safety for pedestrians in City parks by prohibiting motorized bikes.
+  
+**Land Use**
+
+  * **Downtown Redevelopment Area Designation (2014)**: created a legal description of the boundaries of the redevelopment area and planning for projects within it. Redevelopment projects can include streetscapes, building renovations, new construction, flood control, water and sewer improvements, and parking lots.
+  
+  * **Mixed-Use Overlay Zoning (2015 - expanded 2024)**: re-zoning that made it easier for investors to propose residential and commercial (re)development in the downtown district.
+    - Store-front vacancies have declined from 50% to less than 18%.  Permitting multi-family residential development by-right along Main Street has resulted in approx. 600 new units of housing either recently completed or in the development pipeline, all of which helps to shape a more vibrant and walkable downtown.
+
 :::
 
 ::: g-col-12
