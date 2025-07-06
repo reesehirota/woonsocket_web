@@ -24,6 +24,30 @@ library(tidyverse)
 library(sf)
 library(leaflet)
 library(htmltools)
+
+# ---- load: ridot bike paths
+bike_paths <- read_sf("data/rigis/TRANS_Bike_Paths_RIDOT_spf_6654327448778679796.geojson") %>% 
+  st_transform(4326) # re-project for mapping
+# bike_paths %>% group_by(TYPE) %>% summarise(n = n()) %>% arrange(desc(n)) %>% View()
+# bike_paths %>% group_by(STATUS) %>% summarise(n = n()) %>% arrange(desc(n)) %>% View()
+
+# ---- load: bikeways and trails
+# note: sf of bikes & trails (no other info)
+bikes_n_trails <- read_sf("data/rigis/Bikeways_and_Trails_-6810032319405835885.geojson") %>%
+  st_transform(4326)
+
+parks <- read.csv("data/parks_pts.csv") %>%
+  mutate(color = case_when(
+    type == "Park" ~ "#0073e6",
+    type == "Dog park" ~ "#2546f0",
+    .default = "grey"
+  ))
+parks_p <- parks %>% 
+  filter(type == "Park") %>% 
+  st_as_sf(coords=c("longitude","latitude"), crs=4326) 
+parks_dp <- parks %>% 
+  filter(type == "Dog park") %>% 
+  st_as_sf(coords=c("longitude","latitude"), crs=4326)
 ```
 
 ::::::::::: grid
@@ -125,16 +149,6 @@ flowchart TB
 ## Interactive Map
 
 ```{r, echo=FALSE, message=FALSE}
-# ---- load: ridot bike paths
-bike_paths <- read_sf("data/rigis/TRANS_Bike_Paths_RIDOT_spf_6654327448778679796.geojson") %>% 
-  st_transform(4326) # re-project for mapping
-# bike_paths %>% group_by(TYPE) %>% summarise(n = n()) %>% arrange(desc(n)) %>% View()
-# bike_paths %>% group_by(STATUS) %>% summarise(n = n()) %>% arrange(desc(n)) %>% View()
-
-# ---- load: bikeways and trails
-# note: sf of bikes & trails (no other info)
-bikes_n_trails <- read_sf("data/rigis/Bikeways_and_Trails_-6810032319405835885.geojson") %>%
-  st_transform(4326)
 leaflet(width = "100%") %>%
   addProviderTiles(provider = "CartoDB.Positron") %>%
   addPolylines(data = bikes_n_trails, color = "#009eb0",
@@ -144,13 +158,27 @@ leaflet(width = "100%") %>%
   addPolylines(data = bike_paths, color = "#029356",
                group = "RIDOT bike paths",
                label = str_to_title(bike_paths$PROJ_NAME),
+               labelOptions = labelOptions(textsize = 14),
                opacity = 1,
                weight = 5) %>%
+  addCircleMarkers(data = parks_p,
+                   label = parks_p$name,
+                   labelOptions = labelOptions(textsize = 14),
+                   stroke = FALSE,
+                   color = parks_p$color,
+                   fillOpacity = 0.85) %>%
+  addCircleMarkers(data = parks_dp,
+                   label = parks_dp$name,
+                   labelOptions = labelOptions(textsize = 14),
+                   popup = parks_dp$description,
+                   stroke = FALSE,
+                   color = parks_dp$color,
+                   fillOpacity = 0.85) %>%
   addLayersControl(position = "bottomright",
                    overlayGroups = c("Bikeways and trails per the RI State Greenways Plan",
                                      "RIDOT bike paths"),
                    options = layersControlOptions(collapsed = FALSE)) %>%
-  setView(lng = -71.5148,lat = 42.0029, zoom = 14)
+  setView(lng = -71.5148,lat = 42.0029, zoom = 13.5)
 ```
 :::
 
