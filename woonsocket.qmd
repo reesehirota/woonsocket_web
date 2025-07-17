@@ -24,6 +24,7 @@ library(tidyverse)
 library(sf)
 library(leaflet)
 library(htmltools)
+library(viridis)
 
 # ---- load: ridot bike paths
 bike_paths <- read_sf("data/rigis/TRANS_Bike_Paths_RIDOT_spf_6654327448778679796.geojson") %>% 
@@ -36,12 +37,22 @@ bike_paths <- read_sf("data/rigis/TRANS_Bike_Paths_RIDOT_spf_6654327448778679796
 bikes_n_trails <- read_sf("data/rigis/Bikeways_and_Trails_-6810032319405835885.geojson") %>%
   st_transform(4326)
 
+# ---- load: tree equity map
+tree_eq <- read_sf("data/ri_geojson/ri_tes.geojson") %>%
+  st_transform(4326)
+woonsocket <- tree_eq %>%
+  filter(place == "Woonsocket") %>%
+  reframe(geometry = st_union(geometry)) 
+tree_pal <- colorBin(
+  palette = c("#b3c7f7", "#0461cf"),
+  domain = tree_eq$tes,
+  bins = 4,
+  na.color = "#E6E6E6",
+  right = FALSE
+)
+
 parks <- read.csv("data/parks_pts.csv") %>%
-  mutate(color = case_when(
-    type == "Park" ~ "#0073e6",
-    type == "Dog park" ~ "#2546f0",
-    .default = "grey"
-  ))
+  mutate(color = "#0073e6") 
 parks_p <- parks %>% 
   filter(type == "Park") %>% 
   st_as_sf(coords=c("longitude","latitude"), crs=4326) 
@@ -149,36 +160,61 @@ flowchart TB
 ## Interactive Map
 
 ```{r, echo=FALSE, message=FALSE}
-leaflet(width = "100%") %>%
-  addProviderTiles(provider = "CartoDB.Positron") %>%
-  addPolylines(data = bikes_n_trails, color = "#009eb0",
-               group = "Bikeways and trails per the RI State Greenways Plan",
-               opacity = 1, 
-               weight = 5) %>%
-  addPolylines(data = bike_paths, color = "#029356",
+leaflet(height = 650, width = "100%") %>%
+  addProviderTiles(provider = "CartoDB.Positron",
+                   options = providerTileOptions(minZoom = 13.5)) %>%
+  addPolygons(data = woonsocket$geometry,
+              fillOpacity = 0,
+              weight = 4,
+              color = "navy") %>%
+  addPolygons(data = tree_eq, 
+              color = "navy",
+              fillColor = ~tree_pal(tes),
+              group = "Tree Equity Score",
+              label = tree_eq$place,
+              labelOptions = labelOptions(textsize = 14),
+              popup = paste0("<strong>", tree_eq$place, "</strong><br>",
+                             "<em>", tree_eq$GEOID, "</em><br>",
+                             "Tree Equity Score: ", tree_eq$tes),
+              fillOpacity = 0.65,
+              weight = 1.2) %>%
+  addPolylines(data = bike_paths, color = "#054fb9",
                group = "RIDOT bike paths",
                label = str_to_title(bike_paths$PROJ_NAME),
                labelOptions = labelOptions(textsize = 14),
                opacity = 1,
-               weight = 5) %>%
+               weight = 6) %>%
   addCircleMarkers(data = parks_p,
                    label = parks_p$name,
                    labelOptions = labelOptions(textsize = 14),
                    stroke = FALSE,
                    color = parks_p$color,
-                   fillOpacity = 0.85) %>%
+                   fillOpacity = 1,
+                   group = "Public parks") %>%
   addCircleMarkers(data = parks_dp,
                    label = parks_dp$name,
                    labelOptions = labelOptions(textsize = 14),
                    popup = parks_dp$description,
                    stroke = FALSE,
                    color = parks_dp$color,
-                   fillOpacity = 0.85) %>%
-  addLayersControl(position = "bottomright",
-                   overlayGroups = c("Bikeways and trails per the RI State Greenways Plan",
-                                     "RIDOT bike paths"),
+                   fillOpacity = 1,
+                   group = "Public parks") %>%
+  addLegend(pal = tree_pal, 
+            title = "Tree Equity Score [range: 0-100]",
+            values = tree_eq$tes, 
+            opacity = 1,
+            group = "Tree Equity Score",
+            position = "bottomright") %>%
+  # add layer for woonsocket outline
+  addLayersControl(position = "topright",
+                   overlayGroups = c("Tree Equity Score", "RIDOT bike paths", "Public parks"),
                    options = layersControlOptions(collapsed = FALSE)) %>%
-  setView(lng = -71.5148,lat = 42.0029, zoom = 13.5)
+  htmlwidgets::onRender("
+        function() {
+            $('.leaflet-control-layers-overlays').prepend('<label style=\"text-align:center; font-size:16px; width:275px\"><strong>Main Features of the Built Environment in Woonsocket, RI</strong></label>');
+        }
+    ") %>%
+  setView(lng = -71.50014,lat = 41.998603, zoom = 13.5)
 ```
 :::
 
