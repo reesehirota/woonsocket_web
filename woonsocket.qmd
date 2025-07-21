@@ -44,13 +44,14 @@ woonsocket <- tree_eq %>%
   filter(place == "Woonsocket") %>%
   reframe(geometry = st_union(geometry)) 
 tree_pal <- colorBin(
-  palette = c("#b3c7f7", "#0461cf"),
+  palette = c("#F5FBFF", "#8babf1"),
   domain = tree_eq$tes,
   bins = 4,
   na.color = "#E6E6E6",
   right = FALSE
 )
 
+# ---- load parks locations
 parks <- read.csv("data/parks_pts.csv") %>%
   mutate(color = "#0073e6") 
 parks_p <- parks %>% 
@@ -59,6 +60,12 @@ parks_p <- parks %>%
 parks_dp <- parks %>% 
   filter(type == "Dog park") %>% 
   st_as_sf(coords=c("longitude","latitude"), crs=4326)
+
+# ---- load ripta locations
+ripta <- read_sf("data/rigis/TRANS_RIPTA_Bus_Stops_2024_6929259553566897324.geojson") %>%
+  st_transform(4326) %>%
+  mutate(color = "#c44601")
+
 ```
 
 ::::::::::: grid
@@ -71,9 +78,9 @@ parks_dp <- parks %>%
 
 ::: g-col-8
 
-Physical activity is a great way for anyone of any age to take charge of their health. Regular physical activity can result in numerous health benefits – such as decreasing risk for chronic diseases and early death. Cities that are built to support physical activity not only promote health among residents, but also enrich the community by supporting economic stimulation and social connection. In practice, this could look like sidewalks, trails, or parks that are safe and convenient for people to integrate to their daily life. 
+Physical activity is a great way for anyone of any age to take charge of their health. Regular physical activity can result in numerous health benefits – such as decreasing risk for chronic diseases and early death. Cities that are built to support physical activity not only promote health among residents, but also enrich the community by supporting economic stimulation and social connection. 
 
-Following the [Community Preventive Services Task Force's built environment recommendation](https://www.thecommunityguide.org/findings/physical-activity-built-environment-approaches.html), the CDC recommends focusing on activity-friendly routes and everyday destinations. Some measures of activity-friendly routes include: street pattern design & connectivity, pedestrian infrastructure, bicycle infrastructure, and public transit infrastructure & access. Everyday destinations can be affected by increased proximity to community or neighborhood destinations, mixed land use, residential density, and parks parks access. 
+Following the [Community Preventive Services Task Force's built environment recommendation](https://www.thecommunityguide.org/findings/physical-activity-built-environment-approaches.html), the CDC recommends focusing on everyday destinations and activity-friendly routes. Everyday destinations can be affected by increased proximity to community or neighborhood destinations, mixed land use, residential density, and parks parks access. Some measures of activity-friendly routes include: street pattern design & connectivity, pedestrian infrastructure, bicycle infrastructure, and public transit infrastructure & access.In practice this could look like sidewalks, trails, and parks that are safe and convenient for people to integrate to their daily life. For example, more than 15,000 Rhode Island commuters are pedestrians who gain daily physical activity by traveling through public streets - according to the ACS 5-Year Estimates (2009-2023).
 
 **Together, the City of Woonsocket and advocates, including the Woonsocket HEZ & Downtown Woonsocket Collaborative, have taken measures to:**
 
@@ -164,11 +171,12 @@ leaflet(height = 650, width = "100%") %>%
   addProviderTiles(provider = "CartoDB.Positron",
                    options = providerTileOptions(minZoom = 13.5)) %>%
   addPolygons(data = woonsocket$geometry,
+              opacity = 1,
               fillOpacity = 0,
               weight = 4,
-              color = "navy") %>%
+              color = "#054fb9") %>%
   addPolygons(data = tree_eq, 
-              color = "navy",
+              color = "#054fb9",
               fillColor = ~tree_pal(tes),
               group = "Tree Equity Score",
               label = tree_eq$place,
@@ -178,12 +186,20 @@ leaflet(height = 650, width = "100%") %>%
                              "Tree Equity Score: ", tree_eq$tes),
               fillOpacity = 0.65,
               weight = 1.2) %>%
-  addPolylines(data = bike_paths, color = "#054fb9",
+  addPolylines(data = bike_paths, color = "#f57600",
                group = "RIDOT bike paths",
                label = str_to_title(bike_paths$PROJ_NAME),
                labelOptions = labelOptions(textsize = 14),
                opacity = 1,
                weight = 6) %>%
+  addCircleMarkers(data = ripta,
+                   radius = 6,
+                   label = ripta$stop_name,
+                   labelOptions = labelOptions(textsize = 14),
+                   stroke = FALSE,
+                   color = ripta$color,
+                   fillOpacity = 1,
+                   group = "RIPTA stops") %>%
   addCircleMarkers(data = parks_p,
                    label = parks_p$name,
                    labelOptions = labelOptions(textsize = 14),
@@ -207,7 +223,7 @@ leaflet(height = 650, width = "100%") %>%
             position = "bottomright") %>%
   # add layer for woonsocket outline
   addLayersControl(position = "topright",
-                   overlayGroups = c("Tree Equity Score", "RIDOT bike paths", "Public parks"),
+                   overlayGroups = c("Tree Equity Score", "Public parks", "RIDOT bike paths", "RIPTA stops"),
                    options = layersControlOptions(collapsed = FALSE)) %>%
   htmlwidgets::onRender("
         function() {
