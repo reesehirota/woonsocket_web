@@ -34,8 +34,8 @@ bike_paths <- read_sf("data/rigis/TRANS_Bike_Paths_RIDOT_spf_6654327448778679796
 
 # ---- load: bikeways and trails
 # note: sf of bikes & trails (no other info)
-bikes_n_trails <- read_sf("data/rigis/Bikeways_and_Trails_-6810032319405835885.geojson") %>%
-  st_transform(4326)
+# bikes_n_trails <- read_sf("data/rigis/Bikeways_and_Trails_-6810032319405835885.geojson") %>%
+#   st_transform(4326)
 
 # ---- load: tree equity map
 tree_eq <- read_sf("data/ri_geojson/ri_tes.geojson") %>%
@@ -124,6 +124,9 @@ flowchart TB
     B["`<b>Downtown Redevelopment Area Designation</b>
     2014`"] --> C["`<b>Mixed-Use Overlay Zoning - Downtown Main Street District</b>
     2015 (expanded 2024)`"]
+    C["`<b>Mixed-Use Overlay Zoning - Downtown Main Street District</b>
+    2015 (expanded 2024)`"] --> Z["`<b>Proposed zoning text & map revisions</b>
+    2024`"]
   end 
   
   subgraph Pedestrian & Cyclist Networks
@@ -157,7 +160,14 @@ flowchart TB
   * **Downtown Redevelopment Area Designation (2014)**: created a legal description of the boundaries of the redevelopment area and planning for projects within it. Redevelopment projects can include streetscapes, building renovations, new construction, flood control, water and sewer improvements, and parking lots.
   
   * **Mixed-Use Overlay Zoning (2015 - expanded 2024)**: re-zoning that made it easier for investors to propose residential and commercial (re)development in the downtown district.
-    - Store-front vacancies have declined from 50% to less than 18%.  Permitting multi-family residential development by-right along Main Street has resulted in approx. 600 new units of housing either recently completed or in the development pipeline, all of which helps to shape a more vibrant and walkable downtown.
+    - Store-front vacancies have declined from 50% to less than 18%.  
+    - Permitting multi-family residential development by-right along Main Street has resulted in approx. 600 new units of housing either recently completed or in the development pipeline, all of which helps to shape a more vibrant and walkable downtown.
+    
+  * **Proposed zoning text & map revisions (2024)**: as outlined in the [2024 Comprehensive Plan](https://www.woonsocketri.org/sites/g/files/vyhlif5231/f/uploads/240201_woonsocket_master_doc_-_final.pdf), the City revisited its Zoning Ordinance and Official Zoning Map to include the goals of:
+    - GOAL LU-6: Providing access to open space for all residents and bringing environmental values into the City.
+    - GOAL LU-7: Planning for Land Use in anticipation of improvement to the City's transportation network, and coordinating its accommodation of all users - including pedestrians, bicyclists, and automobile drivers.
+    - GOAL LU-8: Encouraging the development of the Blackstone River Valley Heritage Corridor.
+    - GOAL LU-9: Maintaining a Planning & Development Department that satisfactorily plans for Woonsocket's optimum physical, economic, and community development. 
 
 :::
 
@@ -236,5 +246,10 @@ leaflet(height = 650, width = "100%") %>%
 
 ::: g-col-12
 ## Get Involved
+
+* **[Attend a public hearing on Zoning](https://www.woonsocketri.gov/public-hearing-notices)**: stay up to date on public hearings for the Planning Board and Zoning Board of Review.
+
+* **[Host an event at a Woonsocket Park](https://www.woonsocketri.gov/parks-recreation/pages/permits-process)**: apply for use of the athletic facilities or to host community events.
+
 :::
 :::::::::::
