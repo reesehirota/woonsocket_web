@@ -66,6 +66,10 @@ ripta <- read_sf("data/rigis/TRANS_RIPTA_Bus_Stops_2024_6929259553566897324.geoj
   st_transform(4326) %>%
   mutate(color = "#c44601")
 
+# ---- load seasonal events 
+events <- read.csv("data/woonsocket_seasonal_events.csv") %>% 
+  mutate(color = "#5928ed") %>%
+  st_as_sf(coords=c("longitude","latitude"), crs=4326)
 ```
 
 ::::::::::: grid
@@ -225,7 +229,7 @@ leaflet(height = 650, width = "100%") %>%
                    stroke = FALSE,
                    color = ripta$color,
                    fillOpacity = 1,
-                   group = "RIPTA stops") %>%
+                   group = "RIPTA bus stops") %>%
   addCircleMarkers(data = parks_p,
                    label = parks_p$name,
                    labelOptions = labelOptions(textsize = 14),
@@ -236,11 +240,21 @@ leaflet(height = 650, width = "100%") %>%
   addCircleMarkers(data = parks_dp,
                    label = parks_dp$name,
                    labelOptions = labelOptions(textsize = 14),
-                   popup = parks_dp$description,
+                   popup = paste0("<strong>", parks_dp$name, "</strong><br>",
+                                  parks_dp$description),
                    stroke = FALSE,
                    color = parks_dp$color,
                    fillOpacity = 1,
                    group = "Public parks") %>%
+  addCircleMarkers(data = events,
+                   label = events$event_name,
+                   labelOptions = labelOptions(textsize = 14),
+                   popup = paste0("<strong>", events$event_name, "</strong><br>",
+                                  events$description),
+                   stroke = FALSE,
+                   color = events$color,
+                   fillOpacity = 0.5,
+                   group = "Seasonal events") %>%
   addLegend(pal = tree_pal, 
             title = "Tree Equity Score [range: 0-100]",
             values = tree_eq$tes, 
@@ -249,7 +263,7 @@ leaflet(height = 650, width = "100%") %>%
             position = "bottomright") %>%
   # add layer for woonsocket outline
   addLayersControl(position = "topright",
-                   overlayGroups = c("Tree Equity Score", "Public parks", "RIDOT bike paths", "RIPTA stops"),
+                   overlayGroups = c("Tree Equity Score", "Public parks", "RIDOT bike paths", "RIPTA bus stops", "Seasonal events"),
                    options = layersControlOptions(collapsed = FALSE)) %>%
   htmlwidgets::onRender("
         function() {
