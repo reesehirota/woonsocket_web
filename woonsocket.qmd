@@ -80,7 +80,7 @@ events <- read.csv("data/woonsocket_seasonal_events.csv") %>%
 
 :::
 
-::: g-col-8
+::: {.g-col-12 .g-col-md-8}
 
 Physical activity is an excellent way for people of all ages to take charge of their health. Regular physical activity results in numerous health benefits - [such as decreased risk for chronic disease and early death](https://www.cdc.gov/physical-activity/php/about/index.html). Cities that are built to support physical activity not only improve residents' health, but also enrich the community by promoting economic stimulation and social connection.
 
@@ -94,7 +94,7 @@ In order to create an environment conducive to physical activity, per the Commun
 
 :::
 
-::::: g-col-4
+::::: {.g-col-12 .g-col-md-4}
 :::: {style="text-align: center;"}
 ::: {.callout-note style="border-left: solid 2px #dee2e6 !important;" appearance="default" icon="false"}
 
@@ -254,7 +254,7 @@ leaflet(height = 650, width = "100%") %>%
                    stroke = FALSE,
                    color = events$color,
                    fillOpacity = 0.5,
-                   group = "Seasonal events") %>%
+                   group = "[Bonus] Seasonal events at public parks") %>%
   addLegend(pal = tree_pal, 
             title = "Tree Equity Score [range: 0-100]",
             values = tree_eq$tes, 
@@ -263,14 +263,15 @@ leaflet(height = 650, width = "100%") %>%
             position = "bottomright") %>%
   # add layer for woonsocket outline
   addLayersControl(position = "topright",
-                   overlayGroups = c("Tree Equity Score", "Public parks", "RIDOT bike paths", "RIPTA bus stops", "Seasonal events"),
+                   overlayGroups = c("Tree Equity Score", "Public parks", "RIDOT bike paths", "RIPTA bus stops", "[Bonus] Seasonal events at public parks"),
                    options = layersControlOptions(collapsed = FALSE)) %>%
   htmlwidgets::onRender("
         function() {
             $('.leaflet-control-layers-overlays').prepend('<label style=\"text-align:center; font-size:16px; width:275px\"><strong>Main Features of the Built Environment in Woonsocket, RI</strong></label>');
         }
     ") %>%
-  setView(lng = -71.50014,lat = 41.998603, zoom = 13.5)
+  setView(lng = -71.50014,lat = 41.998603, zoom = 13.5) %>% 
+  hideGroup("[Bonus] Seasonal events at public parks")
 ```
 :::
 
