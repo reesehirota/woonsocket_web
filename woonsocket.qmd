@@ -131,7 +131,7 @@ Incorporating the Blackstone River Bikeway - provides recreational, economic, an
 ::: g-col-12
 ## History and Timeline
 
-#### Key policies, investments, events, and other factors that have played a role advancing its built environment in a way that promotes physical activity in the community.		
+### Key policies, investments, events, and other factors that have played a role advancing its built environment in a way that promotes physical activity in the community.		
 
 ```{mermaid}
 %%| fig-align: center
@@ -180,10 +180,10 @@ flowchart TB
     - Permitting multi-family residential development by-right along Main Street has resulted in approx. 600 new units of housing either recently completed or in the development pipeline, all of which helps to shape a more vibrant and walkable downtown.
     
   * **Proposed zoning text & map revisions (2024)**: as outlined in the [2024 Comprehensive Plan](https://www.woonsocketri.org/sites/g/files/vyhlif5231/f/uploads/240201_woonsocket_master_doc_-_final.pdf), the City revisited its Zoning Ordinance and Official Zoning Map to include the goals of:
-    - GOAL LU-6: Providing access to open space for all residents and bringing environmental values into the City.
-    - GOAL LU-7: Planning for Land Use in anticipation of improvement to the City's transportation network, and coordinating its accommodation of all users - including pedestrians, bicyclists, and automobile drivers.
-    - GOAL LU-8: Encouraging the development of the Blackstone River Valley Heritage Corridor.
-    - GOAL LU-9: Maintaining a Planning & Development Department that satisfactorily plans for Woonsocket's optimum physical, economic, and community development. 
+    - *GOAL LU-6:* Providing access to open space for all residents and bringing environmental values into the City.
+    - *GOAL LU-7:* Planning for Land Use in anticipation of improvement to the City's transportation network, and coordinating its accommodation of all users - including pedestrians, bicyclists, and automobile drivers.
+    - *GOAL LU-8:* Encouraging the development of the Blackstone River Valley Heritage Corridor.
+    - *GOAL LU-9:* Maintaining a Planning & Development Department that satisfactorily plans for Woonsocket's optimum physical, economic, and community development. 
 
 :::
 
