@@ -135,7 +135,7 @@ Incorporating the Blackstone River Bikeway - provides recreational, economic, an
 ::: g-col-12
 ## History and Timeline
 
-### Key policies, investments, events, and other factors that have played a role advancing its built environment in a way that promotes physical activity in the community.		
+### Key policies, investments, events, and other factors that have played a role in advancing  the built environment in a way that promotes physical activity in the community.	
 
 ```{mermaid}
 %%| fig-align: center
@@ -169,21 +169,21 @@ flowchart TB
 
   * **Blackstone River Bikeway (2007-2018):** a part of the Blackstone River Greenway, a 48-mile trail from Worcester, MA, to Providence, RI, has significant portions completed, but several gaps remain. While 17 miles of off-road, paved trails exist in segments, the remaining sections require funding and implementation.
   
-  * **Bikweway Signage (2014)**: City partneriship with the East Coast Greenway Alliance for new directional signage around Woonsocket for the Bikepath.
+  * **Bikeway Signage (2014):** City partnership with the East Coast Greenway Alliance for new directional signage around Woonsocket for the Bikepath.
   
-  * **Truman Drive Greenway project (2023-2024)**: transformed a 4-lane, underutilized public road (Truman Drive) into a 2-lane road and linear park incorporating the Blackstone River Bikeway and green infrastructure to treat stormwater runoff into the nearby Blackstone River, while providing recreational, economic, and public health benefits to the city.
+  * **Truman Drive Greenway project (2023-2024):** transformed a 4-lane, underutilized public road (Truman Drive) into a 2-lane road and linear park incorporating the Blackstone River Bikeway and green infrastructure to treat stormwater runoff into the nearby Blackstone River, while providing recreational, economic, and public health benefits to the city.
   
-  * **Safe Streets for All** and the **ban of electronic bikes in parks (2024)**: policies to support the SSFA program, develop a Safety Action Plan, and promote safety for pedestrians in City parks by prohibiting motorized bikes.
+  * **Safe Streets for All** and the **ban of electronic bikes in parks (2024):** policies to support the  SS4A program, develop a Safety Action Plan, and promote safety for pedestrians in City parks by prohibiting motorized bikes.City parks by prohibiting motorized bikes.
   
 **Land Use**
 
-  * **Downtown Redevelopment Area Designation (2014)**: created a legal description of the boundaries of the redevelopment area and planning for projects within it. Redevelopment projects can include streetscapes, building renovations, new construction, flood control, water and sewer improvements, and parking lots.
+  * **Downtown Redevelopment Area Designation (2014):** created a legal description of the boundaries of the redevelopment area and planning for projects within it. Redevelopment projects can include streetscapes, building renovations, new construction, flood control, water and sewer improvements, and parking lots.
   
-  * **Mixed-Use Overlay Zoning (2015 - expanded 2024)**: re-zoning that made it easier for investors to propose residential and commercial (re)development in the downtown district.
+  * **Mixed-Use Overlay Zoning (2015 - expanded 2024):** re-zoning that made it easier for investors to propose residential and commercial (re)development in the downtown district.
     - Store-front vacancies have declined from 50% to less than 18%.  
-    - Permitting multi-family residential development by-right along Main Street has resulted in approx. 600 new units of housing either recently completed or in the development pipeline, all of which helps to shape a more vibrant and walkable downtown.
+    - Permitting multi-family residential development by Main Street has resulted in approx. 600 new units of housing either recently completed or in the development pipeline, all of which helps to shape a more vibrant and walkable downtown.
     
-  * **Proposed zoning text & map revisions (2024)**: as outlined in the [2024 Comprehensive Plan](https://www.woonsocketri.org/sites/g/files/vyhlif5231/f/uploads/240201_woonsocket_master_doc_-_final.pdf), the City revisited its Zoning Ordinance and Official Zoning Map to include the goals of:
+  * **Proposed zoning text & map revisions (2024):** as outlined in the [2024 Comprehensive Plan](https://www.woonsocketri.org/sites/g/files/vyhlif5231/f/uploads/240201_woonsocket_master_doc_-_final.pdf), the City revisited its Zoning Ordinance and Official Zoning Map to include the goals of:
     - *GOAL LU-6:* Providing access to open space for all residents and bringing environmental values into the City.
     - *GOAL LU-7:* Planning for Land Use in anticipation of improvement to the City's transportation network, and coordinating its accommodation of all users - including pedestrians, bicyclists, and automobile drivers.
     - *GOAL LU-8:* Encouraging the development of the Blackstone River Valley Heritage Corridor.
